@@ -1,8 +1,6 @@
-import { defineConfig, toEscapedSelector as e } from 'unocss';
-import presetWind from '@unocss/preset-wind';
+import { defineConfig, toEscapedSelector as e, presetWind3, transformerVariantGroup } from 'unocss';
 import presetRemToPx from './src/assets/uno/preset-rem-to-px';
 import presetResolveRpx from './src/assets/uno/preset-resolve-rpx';
-import transformerVariantGroup from '@unocss/transformer-variant-group';
 
 const normalizeSize = (size: string) => {
   if (+size + '' === size) {
@@ -16,9 +14,9 @@ const normalizeSize = (size: string) => {
 
 export default defineConfig({
   presets: [
-    presetWind(),
+    presetWind3,
     presetRemToPx({ baseFontSize: 4, designWidth: 750 }), // 基于 750 设计稿，w-200 → 200px → vw
-    presetResolveRpx(),
+    presetResolveRpx,
   ],
   transformers: [transformerVariantGroup()],
   rules: [

@@ -1,3 +1,5 @@
+因为所有包都用的最新的，所以需要更新node版本至22及以上
+
 # 移动端适配说明
 
 ## 配置概览
@@ -113,4 +115,3 @@ A: 在属性前加 `!` 或使用其他单位（rem、em 等）
 - `postcss.config.js` - PostCSS 配置
 - `src/assets/uno/preset-resolve-rpx.ts` - rpx 转换预设
 - `src/assets/uno/preset-rem-to-px.ts` - rem 转 px 预设
-# Mobile-H5-inti-item
