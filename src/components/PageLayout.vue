@@ -23,12 +23,8 @@
       <div class="navigation-left flex items-center">
         <div class="flex items-center" v-if="!hideBack" @click="back">
           <img
-            :src="
-              backBtnDeepShallowMode ?
-                'https://legal.jianqingtech.com/vip/images/back_button_light.webp'
-              : 'https://legal.jianqingtech.com/vip/images/back_button_dark.webp'
-            "
-            alt="返回"
+            :src="backBtnDeepShallowMode ? '/images/back_btn_white.webp' : '/images/back_btn_dark.webp'"
+            alt="back"
             class="object-center"
             :style="{ width: props.goBackWidth, height: props.goBackHeight }"
           />
@@ -85,8 +81,8 @@ interface Props {
 }
 const props = withDefaults(defineProps<Props>(), {
   scrollable: true,
-  goBackHeight: '42px',
-  goBackWidth: '42px',
+  goBackHeight: '41px',
+  goBackWidth: '41px',
   backBtnDeepShallowMode: true,
   navigationHeight: '154px',
   adapt: true,
@@ -108,7 +104,7 @@ const back = () => {
 };
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 .page-layout-wrapper {
   width: 100vw;
   height: 100vh;

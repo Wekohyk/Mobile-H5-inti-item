@@ -1,5 +1,9 @@
 /// <reference types="vite/client" />
 
+// 引入 vue runtime core 以确保这是一个模块扩展
+import '@vue/runtime-core';
+import type { AppUtils } from './utils';
+
 // 声明.vue文件模块类型
 declare module '*.vue' {
   import type { DefineComponent } from 'vue';
@@ -9,7 +13,7 @@ declare module '*.vue' {
 
 // 声明Vue全局属性类型
 declare module '@vue/runtime-core' {
-  interface ComponentCustomProperties {
+  export interface ComponentCustomProperties {
     /**
      * 快应用通信桥
      */
@@ -17,13 +21,12 @@ declare module '@vue/runtime-core' {
       sendMessageToQuickApp: (_message: string | object) => void;
       setupQuickAppMessageHandler: (_message: string, _callback: (_data: any) => void) => void;
     };
+    /**
+     * 全局工具类
+     */
+    $utils: AppUtils;
   }
 }
-
-// 将此文件标记为模块，确保模块增强正常生效
-
-// 全局 utils 类型声明，允许直接使用 utils.loading
-import type { AppUtils } from './utils';
 
 // 声明 window.hap 的类型
 declare global {
@@ -35,8 +38,9 @@ declare global {
      * 适配 flutter 的 runJavascript
      */
     flutterMessage?: () => void;
+    $utils: AppUtils;
   }
-  let utils: AppUtils;
+  let $utils: AppUtils;
 }
 
 export {};
